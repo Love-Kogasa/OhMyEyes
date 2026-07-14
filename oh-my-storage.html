@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>我去，这个存储服务有bug</title>
+    <style>.hide {display: none;}</style>
+  </head>
+  <body>
+    <h1>我去<span id="point">↗️</span> <font color="gray" size=2 id="say">中奖概率倍儿低</font></h1>
+    <h2>这家的云盘↘️ <a href="https://app-a9b1seyljuv5.appmiaoda.com/">THIS</a></h2>
+    <h1><font color="green" id="ct">好像能托管静态页面→</font></h1>
+    <div><font color="gray" size=2><s id="hide" class="hide">看不见我</s></font></div>
+    <p id="awa">awa</p>
+    <p id="one"></p>
+    <script>
+      var colors = ["green", "blue", "red"]
+      var to = ["↗️", "→", "↘️", "↓", "↙️", "←", "↖️", "↑"]
+      var says = [
+        "中奖概率倍儿低 ~",
+        "奖品也吗被儿烂 ~",
+        "假手机",
+        "假钞票",
+        "假奔驰",
+        "假金条",
+        "还没大金牢",
+        "<s>何意味</s>"
+      ]
+      var index = 0, index2 = 0, index3 = 0
+      var in1 = setInterval(() => {
+        ct.color = colors[index++ % 3]
+      }, 500)
+      var in2 = setInterval(() => {
+        index2++
+        let push = []
+        for(let i = 0; i < index2 % 20; i++) {
+          push.push("111")
+          awa.textContent =("awa■■■■■■■■■■■■■■■■■■■■").slice(0, i + 3).split("").reverse().join("")
+        }
+        one.innerHTML = push.join("<br>")
+      }, 50)
+      var in3 = setInterval(() => {
+        index3++
+        point.textContent = to[index3%8]
+        say.innerHTML = says[index3%8]
+      }, 25)
+      var in4 = setInterval(() => {
+        hide.classList.toggle("hide")
+      }, 500)
+      setTimeout(() => {
+        alert("诶，好像不行")
+        alert("做CDN和图床好像不错awa")
+        alert("(本也不部署在存储服务上)")
+        var c = confirm("接着狂欢接着舞？")
+        if(!c) {
+          clearInterval(in1)
+          clearInterval(in2)
+          clearInterval(in3)
+          clearInterval(in4)
+          say.innerHTML = "没中"
+          awa.textContent = "xwx 饿啊 ~"
+        }
+      }, 2000)
+    </script>
+  </body>
+</html>
