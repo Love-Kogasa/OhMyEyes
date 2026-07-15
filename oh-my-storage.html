@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>我去，这个存储服务有bug</title>
-    <style>.hide {display: none;}</style>
+    <style>.hide {display: none; margin-left: 0px;}</style>
   </head>
   <body>
     <h1>我去<span id="point">↗️</span> <font color="gray" size=2 id="say">中奖概率倍儿低</font></h1>
@@ -16,6 +16,7 @@
     <script>
       var colors = ["green", "blue", "red"]
       var to = ["↗️", "→", "↘️", "↓", "↙️", "←", "↖️", "↑"]
+      var iMargin = 0
       var says = [
         "中奖概率倍儿低 ~",
         "奖品也吗被儿烂 ~",
@@ -47,6 +48,16 @@
       var in4 = setInterval(() => {
         hide.classList.toggle("hide")
       }, 500)
+      hide.onclick = () => {
+        iMargin += 5
+        hide.style.marginLeft = iMargin + "em"
+        if(iMargin >= 25) {
+          window.location.href = "https://m.bilibili.com/video/BV1UT42167xb"
+        }
+      }
+      say.onclick = () => {
+        alert(say.textContent)
+      }
       setTimeout(() => {
         alert("诶，好像不行")
         alert("做CDN和图床好像不错awa")
